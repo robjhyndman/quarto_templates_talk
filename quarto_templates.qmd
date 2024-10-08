@@ -1,0 +1,19 @@
+---
+title: Creating custom quarto&nbsp;templates
+author: Rob J Hyndman
+date: 23 October 2024
+toc: false
+abstract: I will describe several quarto templates we have made for use at Monash University to create presentations, working papers, theses, exams, slides, reports, memos, and letters. These help make our outputs look professional and consistent. They are relatively easy to make if you know a little LaTeX (for pdf output) or CSS (for html output). More advanced customization is possible with the help of Lua. I will show how you can easily adapt our quarto templates to other organizations, and how to make your own templates from scratch.
+format:
+  presentation-beamer:
+    pdf-engine: pdflatex
+---
+
+```{r}
+#| label: load-packages
+library(knitr)
+library(ggplot2)
+library(dplyr)
+```
+
+# Goals
