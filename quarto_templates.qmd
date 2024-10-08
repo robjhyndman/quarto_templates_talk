@@ -5,8 +5,8 @@ date: 23 October 2024
 toc: false
 abstract: I will describe several quarto templates we have made for use at Monash University to create presentations, working papers, theses, exams, slides, reports, memos, and letters. These help make our outputs look professional and consistent. They are relatively easy to make if you know a little LaTeX (for pdf output) or CSS (for html output). More advanced customization is possible with the help of Lua. I will show how you can easily adapt our quarto templates to other organizations, and how to make your own templates from scratch.
 format:
-  presentation-beamer:
-    pdf-engine: pdflatex
+  presentation-beamer: default
+include-in-header: preamble.tex
 ---
 
 ```{r}
@@ -16,4 +16,69 @@ library(ggplot2)
 library(dplyr)
 ```
 
-# Goals
+# Letter template
+
+\showtemplate{letter.pdf}
+
+# Memo template
+
+\showtemplate{memo.pdf}
+
+# Working paper template
+
+\showtemplate{workingpaper.pdf}
+
+# Report template
+
+\showtemplate{report.pdf}
+
+# Exam template
+
+\showtemplate{exam.pdf}
+
+# Presentation template
+
+\showtemplate{presentation.pdf}
+
+
+# Presentation template
+
+\showtemplate{thesis.pdf}
+
+# History
+
+* latex templates
+* rmarkdown templates
+* monash package
+
+# Design choices
+
+* Fonts
+* Citations
+* Monash branding
+
+# Structure of a template
+
+* github repo structure
+* `_extension.yml`
+* pandoc partials
+
+# Template details
+
+* letters
+* memos
+* working papers
+* reports
+* exams
+* presentations
+* theses
+
+# github organization quarto-monash
+
+* Setting up organization front page
+
+# monash package
+
+* For people who don't like CLI
+
+# Adapting for your own organization

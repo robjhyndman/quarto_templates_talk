@@ -1,0 +1,18 @@
+\usepackage[skins]{tcolorbox}
+
+\newtcbox{\whiteshadowbox}[1][]{%
+  enhanced,
+  center upper,
+  left=0cm,right=0cm,top=0cm,bottom=0cm,
+  fontupper=\large\bfseries,
+  drop fuzzy shadow southeast,
+  boxrule=0.4pt,
+  sharp corners,
+  colframe=black,
+  colback=white!10,
+  before={},
+  after={},
+  #1%
+}
+
+\def\showtemplate#1{\whiteshadowbox{\includegraphics[height=7cm,keepaspectratio]{#1}}}
