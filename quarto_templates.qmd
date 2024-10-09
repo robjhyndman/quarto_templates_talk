@@ -51,7 +51,7 @@ library(dplyr)
 
 \only<2-3>{\showtemplate{pdfpresentation.pdf}}
 \only<1>{\showtemplate{htmltemplate.png}}
-\only<2-3>{\begin{textblock}{9}(6.5,1)
+\only<3>{\begin{textblock}{9}(6.5,1)
 \showyaml{presentation.yml}
 \end{textblock}}
 
@@ -77,17 +77,32 @@ library(dplyr)
 \showyaml{thesis.yml}
 \end{textblock}}
 
-# History
+# Design choices: Fonts
 
-* latex templates
-* rmarkdown templates
-* monash package
+  * All templates use Fira Sans for headings.
 
-# Design choices
+  * All templates use `Source Code Pro` for code which has good disambiguation: `LIli1!| oO0 4AH 5S 7T`
 
-* Fonts
-* Citations
-* Monash branding
+  * All but presentation use Bitstream Vera for the body with a matching mathematical font:
+
+\begin{block}{}
+\centerline{\includegraphics[height=2.9cm,width=14cm]{sample_bera.pdf}}
+\end{block}
+
+# Design choices: Citations
+
+All templates use biblatex with an author-year style consistent with most statistical journals.
+
+\begin{block}{}
+\centerline{\includegraphics[page=15, trim = 0 410 0 235, clip=true, width=16.3cm, height=40cm]{thesis.pdf}}
+\end{block}
+
+# Design choices: Journal articles
+
+* The workingpaper template has the same yaml as the quarto templates for academic journals.
+* So simply changing the format line to `format: elsevier-pdf`, for example, will work.
+
+# Design choices: Monash branding
 
 # Structure of a template
 
