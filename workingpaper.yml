@@ -29,6 +29,5 @@ blind: false
 cover: true
 linestretch: 1.5
 format:
-  wp-pdf:
-    keep-tex: true
+  wp-pdf: default
 ---

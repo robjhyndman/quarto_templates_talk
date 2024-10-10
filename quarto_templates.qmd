@@ -3,6 +3,7 @@ title: Creating custom quarto&nbsp;templates
 author: Rob J Hyndman
 date: 23 October 2024
 toc: false
+keep-tex: true
 abstract: I will describe several quarto templates we have made for use at Monash University to create presentations, working papers, theses, exams, slides, reports, memos, and letters. These help make our outputs look professional and consistent. They are relatively easy to make if you know a little LaTeX (for pdf output) or CSS (for html output). More advanced customization is possible with the help of Lua. I will show how you can easily adapt our quarto templates to other organizations, and how to make your own templates from scratch.
 format:
   presentation-beamer: default
@@ -99,16 +100,54 @@ All templates use biblatex with an author-year style consistent with most statis
 
 # Design choices: Journal articles
 
-* The workingpaper template has the same yaml as the quarto templates for academic journals.
-* So simply changing the format line to `format: elsevier-pdf`, for example, will work.
+* The workingpaper template has the same yaml header as the quarto journal formats.
+* So simply changing\newline `format: wp-pdf` to\newline `format: jasa-pdf` or\newline `format:elsevier-pdf`\newline for example, will work.
+
+# Design choices: Journal articles
+
+\only<1>{\showtemplate{workingpaper.pdf}}
+\only<2>{\showtemplate{workingpaper.pdf}[2]}
+\only<3-5>{\showtemplate{workingpaper.pdf}[3]}
+\only<4>{\begin{textblock}{9}(6.5,1)
+\showyaml{workingpaper.yml}
+\end{textblock}}
+\only<5>{\begin{textblock}{9}(6.5,1)
+\showyaml{workingpaper3.yml}
+\end{textblock}}
+\only<6-7>{\showtemplate{ijf.pdf}}
+\only<6-7>{\begin{textblock}{9}(6.5,1)
+\showyaml{ijf.yml}
+\end{textblock}}
+\only<7>{\begin{textblock}{9}(6.5,7.2)
+\begin{alertblock}{}
+Currently, quarto does not allow two pdf output files.
+\end{alertblock}
+\end{textblock}}
 
 # Design choices: Monash branding
 
 # Structure of a template
 
-* github repo structure
-* `_extension.yml`
-* pandoc partials
+```
+├── _extensions
+│   └── letter
+│       ├── _extension.yml
+│       ├── after-body.tex
+│       ├── before-body.tex
+│       ├── before-title.tex
+│       ├── AACSB.png
+│       ├── AMBA.png
+│       ├── EQUIS.png
+│       ├── MBSportrait.jpg
+│       ├── monash2.png
+│       └── sigfile.png
+└── template.qmd
+```
+
+# Structure of a template
+
+\showyaml{extension.yml}
+
 
 # Template details
 

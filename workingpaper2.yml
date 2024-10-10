@@ -1,3 +1,12 @@
+- name: Genghis Khan
+  affiliations:
+    - name: Monash University
+      department: Department of Econometrics & Business Statistics
+      city: Clayton VIC
+      country: Australia
+      postal-code: 3800
+- name: Monique Ash
+  email: Monique.Ash@monash.edu
 abstract: |
   A brief summary of our ideas
 keywords: [blah, blah]
@@ -8,6 +17,5 @@ blind: false
 cover: true
 linestretch: 1.5
 format:
-  wp-pdf:
-    keep-tex: true
+  wp-pdf: default
 ---
