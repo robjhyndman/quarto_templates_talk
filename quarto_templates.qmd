@@ -152,7 +152,6 @@ All templates use biblatex with an author-year style consistent with most statis
 \centerline{\includegraphics[page=15, trim = 0 410 0 235, clip=true, width=16.3cm, height=40cm]{thesis.pdf}}
 \end{block}
 
-
 # Github repos: github.com/quarto-monash {.fragile}
 
 \hspace*{-1cm}{\includegraphics[width=20cm,height=8cm]{github_repo}}
@@ -217,9 +216,36 @@ monash::quarto\_template\_install(\inch$<$name$>$\inch)
 \only<6>{\showfile{after-body.tex}}
 \only<7>{\showfile{before-title.tex}}
 
-
-
 # Adapting for your own organization
 
 * Fork the repository at https://github.com/quarto-monash/$<$name$>$
 * Edit the relevant files to remove Monash branding and add your own styling.
+
+# Pandoc partial templates
+\fontsize{14}{15}\sf
+
+* **doc-class.tex**: document class and options
+* **before-title.tex**: preamble before title block.
+* **title.tex**: create title block.
+* **before-body.tex**: frontmatter, title page, abstract.
+* **after-body.tex**: content at the end of the body.
+* **toc.tex**: table of contents, lists of figures and tables.
+* **before-bib.tex**: after content but before bibliography.
+* **biblio.tex**: creates bibliography
+
+###
+\fontsize{13}{13}\sf
+
+* **Details:** \url{https://quarto.org/docs/journals/templates.html}
+* **Defaults:** \url{https://github.com/quarto-dev/quarto-cli/tree/main/src/resources/formats/pdf/pandoc}
+
+# More information
+\vspace*{1cm}
+
+\begin{alertblock}{}\fontsize{21}{36}\sf
+\begin{tabular}{cl}
+\includegraphics[width=0.7cm]{slides} & \href{https://robjhyndman.com/quarto_templates}{robjhyndman.com/quarto\_templates} \\
+\faIcon{github} & \href{https://github.com/quarto-monash}{@quarto-monash} \\
+\faIcon{home} & \href{https://robjhyndman.com}{robjhyndman.com}
+\end{tabular}
+\end{alertblock}
