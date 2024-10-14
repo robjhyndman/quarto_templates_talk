@@ -1,4 +1,4 @@
-\usepackage{listingsutf8,textcomp,xparse}
+\usepackage{listingsutf8,textcomp,xparse,fancyvrb}
 \usepackage[skins]{tcolorbox}
 
 \newcommand\uprightquote{{\fontencoding{T1}\selectfont\textquotedbl}}
@@ -48,9 +48,17 @@
 }
 \def\showyaml#1{
 \begin{block}{}\vspace*{-0.3cm}
-  \lstinputlisting{#1}
+  \lstinputlisting{files/#1}
   \vspace*{-0.3cm}
   \end{block}
+}
+\def\showfile#1{
+\begin{textblock}{8.6}(7.15,1)
+\begin{block}{#1}\vspace*{-0.3cm}
+  \lstinputlisting[basicstyle=\linespread{0.9}\fontsize{9}{9}\ttfamily]{files/#1}
+  \vspace*{-0.3cm}
+  \end{block}
+\end{textblock}
 }
 \newtcbox{\whiteshadowbox}[1][]{%
   enhanced,
@@ -71,3 +79,5 @@
 \IfValueT{#2}{\includegraphics[page=#2,height=7.5cm,keepaspectratio]{#1}}%
 \IfNoValueT{#2}{\includegraphics[height=7.5cm,keepaspectratio]{#1}}%
 }}
+
+\def\inch{\textquotedbl}

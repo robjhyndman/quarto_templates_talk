@@ -3,7 +3,6 @@ title: Creating custom quarto&nbsp;templates
 author: Rob J Hyndman
 date: 23 October 2024
 toc: false
-keep-tex: true
 abstract: I will describe several quarto templates we have made for use at Monash University to create presentations, working papers, theses, exams, slides, reports, memos, and letters. These help make our outputs look professional and consistent. They are relatively easy to make if you know a little LaTeX (for pdf output) or CSS (for html output). More advanced customization is possible with the help of Lua. I will show how you can easily adapt our quarto templates to other organizations, and how to make your own templates from scratch.
 format:
   presentation-beamer: default
@@ -52,31 +51,74 @@ library(dplyr)
 
 \only<2-3>{\showtemplate{pdfpresentation.pdf}}
 \only<1>{\showtemplate{htmltemplate.png}}
-\only<3>{\begin{textblock}{9}(6.5,1)
+\only<3>{\begin{textblock}{8.5}(7,.1)
 \showyaml{presentation.yml}
 \end{textblock}}
 
 # Working paper template
 
-\only<1>{\showtemplate{workingpaper.pdf}}
-\only<2>{\showtemplate{workingpaper.pdf}[2]}
-\only<3>{\showtemplate{workingpaper.pdf}[3]}
-\only<4>{\showtemplate{workingpaper.pdf}}
-\only<5-6>{\showtemplate{workingpaper.pdf}[2]}
-\only<7>{\showtemplate{workingpaper.pdf}[3]}
-\only<4-5>{\begin{textblock}{9}(6.5,1)
+\only<1-2>{\showtemplate{workingpaper.pdf}}
+\only<3-4>{\showtemplate{workingpaper.pdf}[2]}
+\only<5-6>{\showtemplate{workingpaper.pdf}[3]}
+
+\only<2-3>{\begin{textblock}{9}(6.5,1)
 \showyaml{workingpaper.yml}
 \end{textblock}}
-\only<6-7>{\begin{textblock}{9}(6.5,1)
+\only<4-6>{\begin{textblock}{9}(6.5,1)
 \showyaml{workingpaper2.yml}
+\end{textblock}}
+
+\only<6>{\begin{textblock}{5.7}(10,6.5)
+\begin{alertblock}{}\fontsize{10}{10}\sf
+Change \texttt{format: wp-pdf} to
+\begin{itemize}\tightlist
+\item  \texttt{arxiv-pdf} for arXiv
+\item a quarto journal format when submitting.
+\end{itemize}
+\end{alertblock}
+\end{textblock}}
+
+# Journal articles
+
+\only<1>{\showtemplate{workingpaper.pdf}[3]}
+\only<1>{\begin{textblock}{9}(6.5,1)
+\showyaml{workingpaper3.yml}
+\end{textblock}}
+\only<2-3>{\showtemplate{ijf.pdf}}
+\only<2-3>{\begin{textblock}{9}(6.5,1)
+\showyaml{ijf.yml}
+\end{textblock}}
+\only<3>{\begin{textblock}{9}(6.5,7.2)
+\begin{alertblock}{}\fontsize{12}{12}\sf
+Currently, quarto does not allow two pdf output files.
+\end{alertblock}
 \end{textblock}}
 
 # Thesis template
 
-\showtemplate{thesis.pdf}
-\only<2>{\begin{textblock}{9}(6.5,1)
-\showyaml{thesis.yml}
+\only<1-2>{\showtemplate{thesis.pdf}}
+\only<3>{\showtemplate{thesis.pdf}[2]}
+\only<4>{\showtemplate{thesis.pdf}[3]}
+\only<5>{\showtemplate{thesis.pdf}[4]}
+\only<6>{\showtemplate{thesis.pdf}[5]}
+\only<7>{\showtemplate{thesis.pdf}[6]}
+\only<8>{\showtemplate{thesis.pdf}[7]}
+\only<9>{\showtemplate{thesis.pdf}[8]}
+\only<10>{\showtemplate{thesis.pdf}[9]}
+\only<11>{\showtemplate{thesis.pdf}[10]}
+\only<12>{\showtemplate{thesis.pdf}[11]}
+\only<13>{\showtemplate{thesis.pdf}[12]}
+\only<14>{\showtemplate{thesis.pdf}[13]}
+\only<15>{\showtemplate{thesis.pdf}[14]}
+\only<16>{\showtemplate{thesis.pdf}[15]}
+
+\begin{textblock}{9}(6.5,1)
+\only<2-16>{\showyaml{thesis.yml}}
 \end{textblock}}
+
+# Thesis template
+
+\centerline{\includegraphics[height=9cm,width=8cm]{thesis_html}}
 
 # Design choices: Fonts
 
@@ -98,73 +140,74 @@ All templates use biblatex with an author-year style consistent with most statis
 \centerline{\includegraphics[page=15, trim = 0 410 0 235, clip=true, width=16.3cm, height=40cm]{thesis.pdf}}
 \end{block}
 
-# Design choices: Journal articles
 
-* The workingpaper template has the same yaml header as the quarto journal formats.
-* So simply changing\newline `format: wp-pdf` to\newline `format: jasa-pdf` or\newline `format:elsevier-pdf`\newline for example, will work.
+# Github repos: github.com/quarto-monash {.fragile}
 
-# Design choices: Journal articles
+\hspace*{-1cm}{\includegraphics[width=20cm,height=8cm]{github_repo}}
 
-\only<1>{\showtemplate{workingpaper.pdf}}
-\only<2>{\showtemplate{workingpaper.pdf}[2]}
-\only<3-5>{\showtemplate{workingpaper.pdf}[3]}
-\only<4>{\begin{textblock}{9}(6.5,1)
-\showyaml{workingpaper.yml}
-\end{textblock}}
-\only<5>{\begin{textblock}{9}(6.5,1)
-\showyaml{workingpaper3.yml}
-\end{textblock}}
-\only<6-7>{\showtemplate{ijf.pdf}}
-\only<6-7>{\begin{textblock}{9}(6.5,1)
-\showyaml{ijf.yml}
-\end{textblock}}
-\only<7>{\begin{textblock}{9}(6.5,7.2)
-\begin{alertblock}{}
-Currently, quarto does not allow two pdf output files.
-\end{alertblock}
+\only<2-3>{\begin{textblock}{6.9}(8.75,1.4)
+\begin{block}{From a terminal}\fontsize{9.5}{10}\ttfamily
+quarto use template quarto-monash/\rlap{$<$name$>$}
+\begin{itemize}\tightlist
+\item letter
+\item memo
+\item presentation
+\item report
+\item thesis
+\item workingpaper
+\item exam
+\end{itemize}
+\end{block}
 \end{textblock}}
 
-# Design choices: Monash branding
+\only<3>{\begin{textblock}{6.9}(8.75,7)
+\begin{block}{From the R console}\fontsize{9.5}{10}\ttfamily
+monash::quarto\_template\_install(\inch$<$name$>$\inch)
+\end{block}
+\end{textblock}
+}
 
-# Structure of a template
+# Structure of a template {.fragile}
 
-```
+\begin{textblock}{6}(0.2,1.3)\fontsize{10}{11}\ttfamily
+\begin{Verbatim}
 ├── _extensions
-│   └── letter
-│       ├── _extension.yml
-│       ├── after-body.tex
-│       ├── before-body.tex
-│       ├── before-title.tex
-│       ├── AACSB.png
-│       ├── AMBA.png
-│       ├── EQUIS.png
-│       ├── MBSportrait.jpg
-│       ├── monash2.png
-│       └── sigfile.png
+│   │   └── quarto-monash
+│   │       └── letter
+│   │           ├── _extension.yml
+│   │           ├── after-body.tex
+│   │           ├── before-body.tex
+│   │           ├── before-title.tex
+│   │           ├── AACSB.png
+│   │           ├── AMBA.png
+│   │           ├── EQUIS.png
+│   │           ├── MBSportrait.jpg
+│   │           ├── monash2.png
+│   │           └── sigfile.png
 └── template.qmd
-```
+\end{Verbatim}
+\end{textblock}
 
-# Structure of a template
+\only<2>{\begin{textblock}{7.3}(8,1.1)
+\begin{block}{}\fontsize{13}{13}\sf
+\begin{itemize}\tightlist
+\item \texttt{template.qmd}: template for user to edit.
+\item \texttt{extension.yml}: default yaml
+\item \texttt{*.tex}: pandoc partials
+\item Everything else: graphical files needed for the template
+\end{itemize}
+\end{block}
+\end{textblock}}
 
-\showyaml{extension.yml}
+\only<3>{\showfile{template.qmd}}
+\only<4>{\showfile{extension.yml}}
+\only<5>{\showfile{before-body.tex}}
+\only<6>{\showfile{after-body.tex}}
+\only<7>{\showfile{before-title.tex}}
 
 
-# Template details
-
-* letters
-* memos
-* working papers
-* reports
-* exams
-* presentations
-* theses
-
-# github organization quarto-monash
-
-* Setting up organization front page
-
-# monash package
-
-* For people who don't like CLI
 
 # Adapting for your own organization
+
+* Fork the repository at https://github.com/quarto-monash/$<$name$>$
+* Edit the relevant files to remove Monash branding and add your own styling.
